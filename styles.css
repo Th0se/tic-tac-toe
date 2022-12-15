@@ -1,0 +1,57 @@
+#playButton {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+#playGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 4rem);
+    grid-template-rows: repeat(3, 4rem);
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.active {
+    transform: translate(-50%, -50%) scale(1) !important;
+}
+
+.playGrids {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    font-size: 3.75rem;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+#grid1,
+#grid3,
+#grid7,
+#grid9 {
+    border: 1px solid black;
+}
+
+#grid2 {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#grid4 {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+#grid6 {
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+}
+
+#grid8 {
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
