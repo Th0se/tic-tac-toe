@@ -8,7 +8,10 @@ const Player = () => {
 }
 
 const Play = (() => {
-    // This is a module function to play the game.
+    /* This is a module function to play the game.
+        I made this so that I won't have to write these functions
+        in every grid in the play field.
+    */
     const Store = (a, b) => {
         b.push(a);
     };
