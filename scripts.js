@@ -29,12 +29,16 @@ const Play = (() => {
             a.textContent = `X`;
         };
     };
-    const winning = [`grid1`, `grid2`, `grid3`];
+    const winningCondition1 = [`grid1`, `grid2`, `grid3`];
+    const WinningCheck = ((store, condition) => {
+        return condition.every(i => store.includes(i));
+    });
     return {
         Store,
         Round,
         Mark,
-        winning,
+        winningCondition1,
+        WinningCheck,
     };
 })();
 
@@ -74,7 +78,8 @@ grid3.addEventListener('click', () => {
     Play.Mark(grid3, input);
     Play.Store(`grid3`, input.store);
     console.log(input.store);
-    console.log(Play.winning);
+    console.log(Play.winningCondition1);
+    console.log(Play.WinningCheck(input.store, Play.winningCondition1));
     round++;
 });
 
