@@ -36,6 +36,7 @@ const Play = (() => {
     const winningCondition5 = [`grid3`, `grid6`, `grid9`];
     const winningCondition6 = [`grid4`, `grid5`, `grid6`];
     const winningCondition7 = [`grid7`, `grid8`, `grid9`];
+    const winningCondition8 = [`grid2`, `grid5`, `grid8`];
     const WinningCheck = ((store, condition) => {
         return condition.every(i => store.includes(i));
     });
@@ -46,7 +47,8 @@ const Play = (() => {
             WinningCheck(store, winningCondition4) ||
             WinningCheck(store, winningCondition5) ||
             WinningCheck(store, winningCondition6) ||
-            WinningCheck(store, winningCondition7)) {
+            WinningCheck(store, winningCondition7) ||
+            WinningCheck(store, winningCondition8)) {
             if (round % 2 === 0) {
                 return `The winner is O`;
             } else if (round % 2 === 1) {
@@ -56,6 +58,17 @@ const Play = (() => {
             return `Winner undecided`;
         }
     };
+    const AnnounceWinner = (result) => {
+        if (result === `The winner is O`) {
+            winnerAnnouncement.textContent = `The winner is O`;
+            winnerAnnouncement.classList.add(`active`);
+            playGrid.classList.remove(`active`);
+        } else if (result === `The winner is X`) {
+            winnerAnnouncement.textContent = `The winner is X`;
+            winnerAnnouncement.classList.add(`active`);
+            playGrid.classList.remove(`active`);
+        };
+    };
     return {
         Store,
         Round,
@@ -63,6 +76,7 @@ const Play = (() => {
         winningCondition1,
         WinningCheck,
         VictoryCheck,
+        AnnounceWinner,
     };
 })();
 
@@ -85,7 +99,8 @@ grid1.addEventListener('click', () => {
     let input = Play.Round();
     Play.Mark(grid1, input);
     Play.Store(`grid1`, input.store);
-    console.log(Play.VictoryCheck(input.store));
+    let result = Play.VictoryCheck(input.store);
+    Play.AnnounceWinner(result);
     round++;
 });
 
@@ -94,7 +109,8 @@ grid2.addEventListener('click', () => {
     let input = Play.Round();
     Play.Mark(grid2, input);
     Play.Store(`grid2`, input.store);
-    console.log(Play.VictoryCheck(input.store));
+    let result = Play.VictoryCheck(input.store);
+    Play.AnnounceWinner(result);
     round++;
 });
 
@@ -103,7 +119,8 @@ grid3.addEventListener('click', () => {
     let input = Play.Round();
     Play.Mark(grid3, input);
     Play.Store(`grid3`, input.store);
-    console.log(Play.VictoryCheck(input.store));
+    let result = Play.VictoryCheck(input.store);
+    Play.AnnounceWinner(result);
     round++;
 });
 
@@ -112,7 +129,8 @@ grid4.addEventListener('click', () => {
     let input = Play.Round();
     Play.Mark(grid4, input);
     Play.Store(`grid4`, input.store);
-    console.log(Play.VictoryCheck(input.store));
+    let result = Play.VictoryCheck(input.store);
+    Play.AnnounceWinner(result);
     round++;
 });
 
@@ -121,7 +139,8 @@ grid5.addEventListener('click', () => {
     let input = Play.Round();
     Play.Mark(grid5, input);
     Play.Store(`grid5`, input.store);
-    console.log(Play.VictoryCheck(input.store));
+    let result = Play.VictoryCheck(input.store);
+    Play.AnnounceWinner(result);
     round++
 });
 
@@ -130,7 +149,8 @@ grid6.addEventListener('click', () => {
     let input = Play.Round();
     Play.Mark(grid6, input);
     Play.Store(`grid6`, input.store);
-    console.log(Play.VictoryCheck(input.store));
+    let result = Play.VictoryCheck(input.store);
+    Play.AnnounceWinner(result);
     round++
 });
 
@@ -139,7 +159,8 @@ grid7.addEventListener('click', () => {
     let input = Play.Round();
     Play.Mark(grid7, input);
     Play.Store(`grid7`, input.store);
-    console.log(Play.VictoryCheck(input.store));
+    let result = Play.VictoryCheck(input.store);
+    Play.AnnounceWinner(result);
     round++
 });
 
@@ -148,7 +169,8 @@ grid8.addEventListener('click', () => {
     let input = Play.Round();
     Play.Mark(grid8, input);
     Play.Store(`grid8`, input.store);
-    console.log(Play.VictoryCheck(input.store));
+    let result = Play.VictoryCheck(input.store);
+    Play.AnnounceWinner(result);
     round++;
 });
 
@@ -157,6 +179,9 @@ grid9.addEventListener('click', () => {
     let input = Play.Round();
     Play.Mark(grid9, input);
     Play.Store(`grid9`, input.store);
-    console.log(Play.VictoryCheck(input.store));
+    let result = Play.VictoryCheck(input.store);
+    Play.AnnounceWinner(result);
     round++;
 });
+
+const winnerAnnouncement = document.querySelector(`#winnerAnnouncement`);

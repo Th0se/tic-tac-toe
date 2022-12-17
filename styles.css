@@ -15,6 +15,13 @@
     transform: translate(-50%, -50%) scale(0);
 }
 
+#winnerAnnouncement {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+}
+
 .active {
     transform: translate(-50%, -50%) scale(1) !important;
 }
