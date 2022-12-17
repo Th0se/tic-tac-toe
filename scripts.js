@@ -29,10 +29,12 @@ const Play = (() => {
             a.textContent = `X`;
         };
     };
+    const winning = [`grid1`, `grid2`, `grid3`];
     return {
         Store,
         Round,
         Mark,
+        winning,
     };
 })();
 
@@ -71,6 +73,8 @@ grid3.addEventListener('click', () => {
     let input = Play.Round();
     Play.Mark(grid3, input);
     Play.Store(`grid3`, input.store);
+    console.log(input.store);
+    console.log(Play.winning);
     round++;
 });
 
