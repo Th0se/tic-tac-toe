@@ -86,12 +86,12 @@ const playerO = Player();
 // The variable 'round' keeps track of the round currently playing.
 let round = 1;
 
-
+const initializer = document.querySelector(`#initializer`);
 const playGrid = document.querySelector(`#playGrid`);
 const playButton = document.querySelector(`#playButton`);
 playButton.addEventListener('click', () => {
     playGrid.classList.add(`active`);
-    playButton.classList.remove(`active`);
+    initializer.classList.remove(`active`);
 });
 
 const grid1 = document.querySelector(`#grid1`);
