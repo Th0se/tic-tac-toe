@@ -7,6 +7,25 @@
     height: 75%;
 }
 
+#enterPlayerX {
+    position: fixed;
+    left: 10%;
+    top: 30%;
+}
+
+#enterPlayerO {
+    position: fixed;
+    top: 30%;
+    right: 10%;
+}
+
+#enterPlayerX,
+#enterPlayerO {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
 #playButton {
     position: fixed;
     left: 50%;

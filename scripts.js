@@ -1,10 +1,16 @@
+const winnerAnnouncement = document.querySelector(`#winnerAnnouncement`);
+const playerXName = document.querySelector(`#playerXName`);
+const playerOName = document.querySelector(`#playerOName`);
+
+
 const Player = () => {
     /* This is a factory function to create players.
         Each player has their own array to keep track of the
         playGrids keeping their mark.
     */
+    const name = ``;
     const gridArray = [];
-    return {store: gridArray};
+    return {store: gridArray, name: name};
 }
 
 const Play = (() => {
@@ -60,11 +66,12 @@ const Play = (() => {
     };
     const AnnounceWinner = (result) => {
         if (result === `The winner is O`) {
-            winnerAnnouncement.textContent = `The winner is O`;
+            winnerAnnouncement.textContent = `The winner is ${playerOName.value}`;
             winnerAnnouncement.classList.add(`active`);
             playGrid.classList.remove(`active`);
+            console.log(`${playerO.name}`);
         } else if (result === `The winner is X`) {
-            winnerAnnouncement.textContent = `The winner is X`;
+            winnerAnnouncement.textContent = `The winner is ${playerXName.value}`;
             winnerAnnouncement.classList.add(`active`);
             playGrid.classList.remove(`active`);
         };
@@ -86,12 +93,14 @@ const playerO = Player();
 // The variable 'round' keeps track of the round currently playing.
 let round = 1;
 
+
 const initializer = document.querySelector(`#initializer`);
 const playGrid = document.querySelector(`#playGrid`);
 const playButton = document.querySelector(`#playButton`);
 playButton.addEventListener('click', () => {
     playGrid.classList.add(`active`);
     initializer.classList.remove(`active`);
+    console.log(playerXName.value)
 });
 
 const grid1 = document.querySelector(`#grid1`);
@@ -183,5 +192,3 @@ grid9.addEventListener('click', () => {
     Play.AnnounceWinner(result);
     round++;
 });
-
-const winnerAnnouncement = document.querySelector(`#winnerAnnouncement`);
