@@ -126,6 +126,7 @@ grid1.addEventListener('click', () => {
     Play.AnnounceWinner(result);
     round++;
     Play.Turn(round);
+    grid1.style.pointerEvents = `none`;
 });
 
 const grid2 = document.querySelector(`#grid2`);
@@ -137,6 +138,7 @@ grid2.addEventListener('click', () => {
     Play.AnnounceWinner(result);
     round++;
     Play.Turn(round);
+    grid2.style.pointerEvents = `none`;
 });
 
 const grid3 = document.querySelector(`#grid3`);
@@ -148,6 +150,7 @@ grid3.addEventListener('click', () => {
     Play.AnnounceWinner(result);
     round++;
     Play.Turn(round);
+    grid3.style.pointerEvents = `none`;
 });
 
 const grid4 = document.querySelector(`#grid4`);
@@ -159,6 +162,7 @@ grid4.addEventListener('click', () => {
     Play.AnnounceWinner(result);
     round++;
     Play.Turn(round);
+    grid4.style.pointerEvents = `none`;
 });
 
 const grid5 = document.querySelector(`#grid5`);
@@ -170,6 +174,7 @@ grid5.addEventListener('click', () => {
     Play.AnnounceWinner(result);
     round++
     Play.Turn(round);
+    grid5.style.pointerEvents = `none`;
 });
 
 const grid6 = document.querySelector(`#grid6`);
@@ -181,6 +186,7 @@ grid6.addEventListener('click', () => {
     Play.AnnounceWinner(result);
     round++
     Play.Turn(round);
+    grid6.style.pointerEvents = `none`;
 });
 
 const grid7 = document.querySelector(`#grid7`);
@@ -192,6 +198,7 @@ grid7.addEventListener('click', () => {
     Play.AnnounceWinner(result);
     round++
     Play.Turn(round);
+    grid7.style.pointerEvents = `none`;
 });
 
 const grid8 = document.querySelector(`#grid8`);
@@ -203,6 +210,7 @@ grid8.addEventListener('click', () => {
     Play.AnnounceWinner(result);
     round++;
     Play.Turn(round);
+    grid8.style.pointerEvents = `none`;
 });
 
 const grid9 = document.querySelector(`#grid9`);
@@ -214,4 +222,5 @@ grid9.addEventListener('click', () => {
     Play.AnnounceWinner(result);
     round++;
     Play.Turn(round);
+    grid9.style.pointerEvents = `none`;
 });
