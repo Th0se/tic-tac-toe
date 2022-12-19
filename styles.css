@@ -34,13 +34,20 @@
     transform: translate(-50%, -50%) scale(0);
 }
 
+#turnAnnouncement {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+}
+
 #playGrid {
     display: grid;
     grid-template-columns: repeat(3, 4rem);
     grid-template-rows: repeat(3, 4rem);
     position: fixed;
     left: 50%;
-    top: 50%;
+    top: 70%;
     transform: translate(-50%, -50%) scale(0);
 }
 

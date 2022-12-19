@@ -33,6 +33,15 @@ const Play = (() => {
             a.textContent = `O`;
         } else if (b === playerX) {
             a.textContent = `X`;
+        }
+    };
+    const Turn = (turn) => {
+        if (turn === 1) {
+            turnAnnouncement.textContent = `Move, ${playerXName.value}`;
+        } else if (turn % 2 === 0) {
+            turnAnnouncement.textContent = `Move, ${playerOName.value}`;
+        } else if (turn % 2 === 1) {
+            turnAnnouncement.textContent = `Move, ${playerXName.value}`;
         };
     };
     const winningCondition1 = [`grid1`, `grid2`, `grid3`];
@@ -80,6 +89,7 @@ const Play = (() => {
         Store,
         Round,
         Mark,
+        Turn,
         winningCondition1,
         WinningCheck,
         VictoryCheck,
@@ -97,10 +107,14 @@ let round = 1;
 const initializer = document.querySelector(`#initializer`);
 const playGrid = document.querySelector(`#playGrid`);
 const playButton = document.querySelector(`#playButton`);
+const turnAnnouncement = document.querySelector(`#turnAnnouncement`);
 playButton.addEventListener('click', () => {
     playGrid.classList.add(`active`);
+    turnAnnouncement.classList.add(`active`);
     initializer.classList.remove(`active`);
-    console.log(playerXName.value)
+    console.log(playerXName.value);
+    console.log(playerOName.value);
+    Play.Turn(round);
 });
 
 const grid1 = document.querySelector(`#grid1`);
@@ -111,6 +125,7 @@ grid1.addEventListener('click', () => {
     let result = Play.VictoryCheck(input.store);
     Play.AnnounceWinner(result);
     round++;
+    Play.Turn(round);
 });
 
 const grid2 = document.querySelector(`#grid2`);
@@ -121,6 +136,7 @@ grid2.addEventListener('click', () => {
     let result = Play.VictoryCheck(input.store);
     Play.AnnounceWinner(result);
     round++;
+    Play.Turn(round);
 });
 
 const grid3 = document.querySelector(`#grid3`);
@@ -131,6 +147,7 @@ grid3.addEventListener('click', () => {
     let result = Play.VictoryCheck(input.store);
     Play.AnnounceWinner(result);
     round++;
+    Play.Turn(round);
 });
 
 const grid4 = document.querySelector(`#grid4`);
@@ -141,6 +158,7 @@ grid4.addEventListener('click', () => {
     let result = Play.VictoryCheck(input.store);
     Play.AnnounceWinner(result);
     round++;
+    Play.Turn(round);
 });
 
 const grid5 = document.querySelector(`#grid5`);
@@ -151,6 +169,7 @@ grid5.addEventListener('click', () => {
     let result = Play.VictoryCheck(input.store);
     Play.AnnounceWinner(result);
     round++
+    Play.Turn(round);
 });
 
 const grid6 = document.querySelector(`#grid6`);
@@ -161,6 +180,7 @@ grid6.addEventListener('click', () => {
     let result = Play.VictoryCheck(input.store);
     Play.AnnounceWinner(result);
     round++
+    Play.Turn(round);
 });
 
 const grid7 = document.querySelector(`#grid7`);
@@ -171,6 +191,7 @@ grid7.addEventListener('click', () => {
     let result = Play.VictoryCheck(input.store);
     Play.AnnounceWinner(result);
     round++
+    Play.Turn(round);
 });
 
 const grid8 = document.querySelector(`#grid8`);
@@ -181,6 +202,7 @@ grid8.addEventListener('click', () => {
     let result = Play.VictoryCheck(input.store);
     Play.AnnounceWinner(result);
     round++;
+    Play.Turn(round);
 });
 
 const grid9 = document.querySelector(`#grid9`);
@@ -191,4 +213,5 @@ grid9.addEventListener('click', () => {
     let result = Play.VictoryCheck(input.store);
     Play.AnnounceWinner(result);
     round++;
+    Play.Turn(round);
 });
