@@ -30,10 +30,10 @@ const Play = (() => {
     };
     const Mark = (a, b) => {
         if (b === playerO) {
-            a.textContent = `O`;
+            a.innerHTML = `<p class="mark">O</p>`;
         } else if (b === playerX) {
-            a.textContent = `X`;
-        }
+            a.innerHTML = `<p class="mark">X</p>`;
+        };
     };
     const Turn = (turn) => {
         if (turn === 1) {
@@ -75,12 +75,12 @@ const Play = (() => {
     };
     const AnnounceWinner = (result) => {
         if (result === `The winner is O`) {
-            winnerAnnouncement.textContent = `The winner is ${playerOName.value}`;
+            winnerAnnouncement.textContent = `The winner is ${playerOName.value}. Congratulations!`;
             winnerAnnouncement.classList.add(`active`);
             playGrid.classList.remove(`active`);
             console.log(`${playerO.name}`);
         } else if (result === `The winner is X`) {
-            winnerAnnouncement.textContent = `The winner is ${playerXName.value}`;
+            winnerAnnouncement.textContent = `The winner is ${playerXName.value}. Congratulations!`;
             winnerAnnouncement.classList.add(`active`);
             playGrid.classList.remove(`active`);
         };
@@ -103,11 +103,14 @@ const playerO = Player();
 // The variable 'round' keeps track of the round currently playing.
 let round = 1;
 
-
+/* These buttons are grouped together to ease the effort of
+    looking from them.
+*/
 const initializer = document.querySelector(`#initializer`);
 const playGrid = document.querySelector(`#playGrid`);
 const playButton = document.querySelector(`#playButton`);
 const turnAnnouncement = document.querySelector(`#turnAnnouncement`);
+const playAgainButton = document.querySelector(`#playAgainButton`);
 playButton.addEventListener('click', () => {
     playGrid.classList.add(`active`);
     turnAnnouncement.classList.add(`active`);
@@ -115,6 +118,35 @@ playButton.addEventListener('click', () => {
     console.log(playerXName.value);
     console.log(playerOName.value);
     Play.Turn(round);
+});
+playAgainButton.addEventListener(`click`, () => {
+    playerXName.value = ``;
+    playerOName.value = ``;
+    grid1.style.pointerEvents = `auto`;
+    grid2.style.pointerEvents = `auto`;
+    grid3.style.pointerEvents = `auto`;
+    grid4.style.pointerEvents = `auto`;
+    grid5.style.pointerEvents = `auto`;
+    grid6.style.pointerEvents = `auto`;
+    grid7.style.pointerEvents = `auto`;
+    grid8.style.pointerEvents = `auto`;
+    grid9.style.pointerEvents = `auto`;
+    grid1.replaceChildren();
+    grid2.replaceChildren();
+    grid3.replaceChildren();
+    grid4.replaceChildren();
+    grid5.replaceChildren();
+    grid6.replaceChildren();
+    grid7.replaceChildren();
+    grid8.replaceChildren();
+    grid9.replaceChildren();
+    winnerAnnouncement.textContent = ``;
+    playerX.store = [];
+    playerO.store = [];
+    round = 1;
+    playGrid.classList.remove(`active`);
+    turnAnnouncement.classList.remove(`active`);
+    initializer.classList.add(`active`);
 });
 
 const grid1 = document.querySelector(`#grid1`);
