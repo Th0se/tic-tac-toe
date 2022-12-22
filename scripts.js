@@ -78,13 +78,18 @@ const Play = (() => {
             winnerAnnouncement.textContent = `The winner is ${playerOName.value}. Congratulations!`;
             winnerAnnouncement.classList.add(`active`);
             playGrid.classList.remove(`active`);
+            turnAnnouncement.classList.remove(`active`);
             console.log(`${playerO.name}`);
         } else if (result === `The winner is X`) {
             winnerAnnouncement.textContent = `The winner is ${playerXName.value}. Congratulations!`;
             winnerAnnouncement.classList.add(`active`);
             playGrid.classList.remove(`active`);
+            turnAnnouncement.classList.remove(`active`);
         };
     };
+    const DisableButtons = (button) => {
+        button.style.pointerEvents = `none`;
+    }
     return {
         Store,
         Round,
@@ -94,6 +99,7 @@ const Play = (() => {
         WinningCheck,
         VictoryCheck,
         AnnounceWinner,
+        DisableButtons,
     };
 })();
 
@@ -158,7 +164,7 @@ grid1.addEventListener('click', () => {
     Play.AnnounceWinner(result);
     round++;
     Play.Turn(round);
-    grid1.style.pointerEvents = `none`;
+    Play.DisableButtons(grid1);
 });
 
 const grid2 = document.querySelector(`#grid2`);
@@ -170,7 +176,7 @@ grid2.addEventListener('click', () => {
     Play.AnnounceWinner(result);
     round++;
     Play.Turn(round);
-    grid2.style.pointerEvents = `none`;
+    Play.DisableButtons(grid2);
 });
 
 const grid3 = document.querySelector(`#grid3`);
@@ -182,7 +188,7 @@ grid3.addEventListener('click', () => {
     Play.AnnounceWinner(result);
     round++;
     Play.Turn(round);
-    grid3.style.pointerEvents = `none`;
+    Play.DisableButtons(grid3);
 });
 
 const grid4 = document.querySelector(`#grid4`);
@@ -194,7 +200,7 @@ grid4.addEventListener('click', () => {
     Play.AnnounceWinner(result);
     round++;
     Play.Turn(round);
-    grid4.style.pointerEvents = `none`;
+    Play.DisableButtons(grid4);
 });
 
 const grid5 = document.querySelector(`#grid5`);
@@ -206,7 +212,7 @@ grid5.addEventListener('click', () => {
     Play.AnnounceWinner(result);
     round++
     Play.Turn(round);
-    grid5.style.pointerEvents = `none`;
+    Play.DisableButtons(grid5);
 });
 
 const grid6 = document.querySelector(`#grid6`);
@@ -218,7 +224,7 @@ grid6.addEventListener('click', () => {
     Play.AnnounceWinner(result);
     round++
     Play.Turn(round);
-    grid6.style.pointerEvents = `none`;
+    Play.DisableButtons(grid6);
 });
 
 const grid7 = document.querySelector(`#grid7`);
@@ -230,7 +236,7 @@ grid7.addEventListener('click', () => {
     Play.AnnounceWinner(result);
     round++
     Play.Turn(round);
-    grid7.style.pointerEvents = `none`;
+    Play.DisableButtons(grid7);
 });
 
 const grid8 = document.querySelector(`#grid8`);
@@ -242,7 +248,7 @@ grid8.addEventListener('click', () => {
     Play.AnnounceWinner(result);
     round++;
     Play.Turn(round);
-    grid8.style.pointerEvents = `none`;
+    Play.DisableButtons(grid8);
 });
 
 const grid9 = document.querySelector(`#grid9`);
@@ -254,5 +260,5 @@ grid9.addEventListener('click', () => {
     Play.AnnounceWinner(result);
     round++;
     Play.Turn(round);
-    grid9.style.pointerEvents = `none`;
+    Play.DisableButtons(grid9);
 });
